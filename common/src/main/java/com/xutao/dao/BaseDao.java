@@ -1,5 +1,7 @@
 package com.xutao.dao;
 
+import com.xutao.vo.BaseModel;
+
 import java.util.List;
 
 /**
@@ -7,8 +9,8 @@ import java.util.List;
  */
 public interface BaseDao<M, QM> {
 
-    void create(M cm);
-    void update(M cm);
+    void create(M m);
+    void update(M m);
     void delete(int uuid);
 
     M getByUuid(int uuid);

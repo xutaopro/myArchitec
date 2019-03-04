@@ -9,12 +9,5 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 @Data
 public class CustomerQueryModel extends CustomerModel{
-    private Page page = new Page();
 
-    public Page getPage() {
-        return page;
-    }
-    public void setPage(Page page) {
-        this.page = page;
-    }
 }

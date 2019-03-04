@@ -1,13 +1,13 @@
 package com.xutao.architec.customermgr.vo;
 
+import com.xutao.vo.BaseModel;
 import lombok.Data;
 
 /**
  * Created by XUTAO on 2019/2/24.
  */
 @Data
-public class CustomerModel {
-    private Integer uuid;
+public class CustomerModel extends BaseModel{
 
     private String customerId;
 

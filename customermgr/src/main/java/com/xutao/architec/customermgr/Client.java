@@ -1,6 +1,7 @@
 package com.xutao.architec.customermgr;
 
 import com.xutao.architec.customermgr.dao.CustomerDao;
+import com.xutao.architec.customermgr.service.ICustomerService;
 import com.xutao.architec.customermgr.vo.CustomerModel;
 import com.xutao.architec.customermgr.vo.CustomerQueryModel;
 import com.xutao.pageUtil.Page;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,7 +20,7 @@ import java.util.List;
 public class Client {
 
     @Autowired
-    private CustomerDao customerDao;
+    private ICustomerService s;
 
     public static void main(String[] args) {
         ApplicationContext actx = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -35,7 +37,7 @@ public class Client {
         cqm.getPage().setNowPage(1);
         cqm.getPage().setPageShow(1);
 
-        List<CustomerModel> p = client.customerDao.getByConditionPage(cqm);
+        Page<CustomerModel> p = client.s.getByConditionPage(cqm);
 
         System.out.println("list=="+p);
         System.out.println("page=="+cqm.getPage());
